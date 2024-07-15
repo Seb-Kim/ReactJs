@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Background from './Background.js';
+import InputFunc from './InputFunc.js';
+import ToggleTextColor from './ToggleTextColor.js';
+import { useState } from 'react';
 
 function App() {
+  const [color, setColor] = useState('')
+  const [isHardlyVisible, setIsHardlyVisible] = useState(true);
+  const [textcolor, setTextColor] = useState('black');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Background
+        color={color}
+        textcolor={textcolor}
+      />
+      <InputFunc
+        color={color}
+        setColor={setColor}
+        textcolor={textcolor}
+      />
+      <ToggleTextColor
+        isHardlyVisible={isHardlyVisible}
+        setIsHardlyVisible={setIsHardlyVisible}
+        setTextColor={setTextColor}
+      />
+    </main >
   );
 }
 
